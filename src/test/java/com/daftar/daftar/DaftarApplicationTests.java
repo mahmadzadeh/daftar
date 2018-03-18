@@ -20,9 +20,9 @@ public class DaftarApplicationTests {
     @Autowired
     private TestRestTemplate restTemplate;
 
-
     @Test
     public void diariesWhenExistThen() {
+
         ResponseEntity<Diary> response = restTemplate.getForEntity( "/diaries/22334", Diary.class );
 
         assertThat( response.getStatusCode() ).isEqualTo( HttpStatus.OK );

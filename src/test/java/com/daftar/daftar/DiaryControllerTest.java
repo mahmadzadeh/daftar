@@ -1,6 +1,7 @@
 package com.daftar.daftar;
 
 import com.daftar.daftar.domain.Diary;
+import com.daftar.daftar.service.DiaryNotFoundException;
 import com.daftar.daftar.service.DiaryService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -40,6 +41,14 @@ public class DiaryControllerTest {
                 .andExpect( status().isOk() )
                 .andExpect( jsonPath( "content" ).value( diaryContent ) )
                 .andExpect( jsonPath( "date" ).value( expectedDate.toString() ) );
+    }
+
+    @Test
+    public void getDiaryWhenNoDiaryExistReturnsNotFound() throws Exception {
+
+        when( service.getDiary( anyLong() ) ).thenThrow( new DiaryNotFoundException( "Unable to find diary with id" ) );
+
+        mockMvc.perform( MockMvcRequestBuilders.get( "/diaries/12345" ) ).andExpect( status().isNotFound() );
     }
 
 }
