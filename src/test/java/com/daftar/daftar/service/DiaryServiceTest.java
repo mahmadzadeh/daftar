@@ -33,7 +33,6 @@ public class DiaryServiceTest {
         sut = new DiaryService( diaryRepository );
     }
 
-
     @Test
     public void getDiaryWhenNoDiaryFoundWillReturnNotFound() {
 

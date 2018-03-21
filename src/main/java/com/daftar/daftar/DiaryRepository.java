@@ -1,11 +1,8 @@
 package com.daftar.daftar;
 
 import com.daftar.daftar.domain.Diary;
+import org.springframework.data.repository.CrudRepository;
 
-import java.util.Optional;
+public interface DiaryRepository extends CrudRepository<Diary, Long> {
 
-public class DiaryRepository {
-    public Optional<Diary> findById( long id ) {
-        return null;
-    }
 }

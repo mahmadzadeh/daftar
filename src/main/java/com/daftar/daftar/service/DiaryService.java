@@ -19,6 +19,5 @@ public class DiaryService {
 
         return diaryRepository.findById( id )
                 .orElseThrow( () -> new DiaryNotFoundException( "Unable to find diary for id " + id ) );
-
     }
 }
