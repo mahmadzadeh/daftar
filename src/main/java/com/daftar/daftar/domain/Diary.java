@@ -3,6 +3,7 @@ package com.daftar.daftar.domain;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,8 +17,11 @@ public class Diary {
     @GeneratedValue
     private Long id;
 
+
+    @Column(name = "content")
     private String content;
 
+    @Column(name = "date")
     private LocalDate date;
 
     protected Diary() {

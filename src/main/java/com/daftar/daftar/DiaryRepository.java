@@ -1,8 +1,13 @@
 package com.daftar.daftar;
 
 import com.daftar.daftar.domain.Diary;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface DiaryRepository extends CrudRepository<Diary, Long> {
+import java.time.LocalDate;
+import java.util.Optional;
+
+public interface DiaryRepository extends JpaRepository<Diary, Long> {
+
+    Optional<Diary> findByDate( LocalDate date );
 
 }

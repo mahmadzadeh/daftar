@@ -36,6 +36,18 @@ public class DiaryRepositoryTest {
         Assertions.assertThat( actual.get() ).isEqualTo( expected );
     }
 
+    @Test
+    public void diariesCanBeSearchedByDate() {
+
+        LocalDate now = LocalDate.now();
+
+        persist( new Diary( "aasda", now ) );
+
+        Optional<Diary> actual = repository.findByDate( now );
+
+        assertTrue( actual.isPresent() );
+    }
+
     private Diary persist( Diary diary ) {
         return testEntityManager.persistFlushFind( diary );
     }
