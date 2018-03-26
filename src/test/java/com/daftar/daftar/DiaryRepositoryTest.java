@@ -27,13 +27,17 @@ public class DiaryRepositoryTest {
     @Test
     public void findByIdWhenDiaryWithIdExistReturnsDiary() {
 
-        Diary expected = persist( new Diary( "aasda", LocalDate.now() ) );
+        LocalDate date = LocalDate.now();
+
+        Diary expected = persist( new Diary( "aasda", date ) );
 
         Optional<Diary> actual = repository.findById( expected.getId() );
 
         assertTrue( actual.isPresent() );
 
         Assertions.assertThat( actual.get() ).isEqualTo( expected );
+
+        assertTrue( actual.get().getDate().equals( date ) );
     }
 
     @Test

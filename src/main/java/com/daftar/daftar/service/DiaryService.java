@@ -4,6 +4,9 @@ import com.daftar.daftar.DiaryRepository;
 import com.daftar.daftar.domain.Diary;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.Optional;
+
 @Service
 public class DiaryService {
 
@@ -19,5 +22,9 @@ public class DiaryService {
 
         return diaryRepository.findById( id )
                 .orElseThrow( () -> new DiaryNotFoundException( "Unable to find diary for id " + id ) );
+    }
+
+    public Diary getDiary( Optional<LocalDate> date ) {
+        return null;
     }
 }

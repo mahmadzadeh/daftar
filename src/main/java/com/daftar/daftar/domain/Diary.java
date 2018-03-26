@@ -17,7 +17,6 @@ public class Diary {
     @GeneratedValue
     private Long id;
 
-
     @Column(name = "content")
     private String content;
 
